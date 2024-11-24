@@ -55,12 +55,31 @@ viewBookClub = viewHead "Book Club | Alexander Goussas" >> viewAppBar >> H.main 
     ]
   H.div "It might be possible to have in-person meetings from time to time if the members of the group want to.")
 
+viewTheCurryCorner :: Html
+viewTheCurryCorner = viewHead "The Curry Corner | Alexander Goussas" >> viewAppBar >> H.main (do
+  H.h1 "The Curry Corner"
+  H.div "Welcome to The Curry Corner!"
+  H.div "This is a series of videos talking about different topics relating to functional programming."
+  H.div $ mconcat
+    [ "I am currently looking for a co-host to run the show. The dynamic I am going for is: hosts alternate episodes "
+    , "between the driver and copilot seat. The driver runs the episode, and the copilot helps with the live chat and pointing "
+    , "things out or correcting the driver if necessary."
+    ]
+  H.div "To give you an idea of what I am going for, some of the topics I plan on treating are: "
+  H.ul $ do
+    H.li "Translating common algorithms to use recursion"
+    H.li "Tagless final with fp-ts and comparison with Haskell/Scala"
+    H.li "Stateful computation in functional languages"
+    H.li "Property based testing"
+  H.div "Among others. If this is something that interests you, please don't hesitate to reach out to me.")
+
 viewAppBar :: Html
 viewAppBar = H.header $ H.nav $
   H.ul $ do
     H.li $ H.a ! A.href "/" $ "Home"
     H.li $ H.a ! A.href "https://aloussase.substack.com" $ "Blog"
     H.li $ H.a ! A.href "/spbc" $ "Book Club"
+    H.li $ H.a ! A.href "/curry-corner" $ "The Curry Corner"
 
 viewInterestingStuff :: Html
 viewInterestingStuff = do
@@ -73,6 +92,9 @@ viewInterestingStuff = do
     H.li $ do
       "The online book club I run "
       H.a ! A.href "/spbc" $ "GYE Systems Programming Book Club"
+    H.li $ do
+      "Co-hosted YouTube channel talking all things FP "
+      H.a ! A.href "/curry-corner" $ "The Curry Corner"
     H.li $ do
       "Free Software university club (I was president for a couple years) "
       H.a ! A.href "https://kokoa.espol.edu.ec" $ "Kokoa"
@@ -94,6 +116,7 @@ app port = scotty port $ do
 
   get "/" $ html . renderHtml $ viewHome
   get "/spbc" $ html . renderHtml $ viewBookClub
+  get "/curry-corner" $ html . renderHtml $ viewTheCurryCorner
 
 
 main :: IO ()
