@@ -1,0 +1,38 @@
+body {
+  line-height: 1.5;
+}
+
+header {
+  display: flex;
+  align-items: center;
+
+  nav {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+
+    ul {
+      display: flex;
+      gap: 1rem;
+      list-style: none;
+    }
+  }
+}
+
+main {
+  margin: auto;
+  width: 60%;
+
+  img {
+    max-width: 160px;
+  }
+
+  div {
+    margin: 1rem 0;
+  }
+}
+
+#sign-up {
+  font-weight: bold;
+}
