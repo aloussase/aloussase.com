@@ -42,7 +42,8 @@ viewBookClub = viewHead "Book Club | Alexander Goussas" >> viewAppBar >> H.main 
   H.div ! A.id "sign-up" $ do
     "Join "
     H.a ! A.href "https://forms.gle/kTYk5kc1Y4sv3MXq9" $ "here"
-    "."
+    ", or join "
+    H.a ! A.href "https://discord.gg/kbK45MDk7q" $ "the Discord server."
   H.div "SPBC is a book club where members discuss programming books through email and engage in exciting and provocative conversation."
   H.div $ mconcat
     [ "The criteria for picking books is very loose, anything related to systems programming is fine: programming language theory, "
@@ -92,6 +93,9 @@ viewInterestingStuff = do
     H.li $ do
       "The online book club I run "
       H.a ! A.href "/spbc" $ "GYE Systems Programming Book Club"
+    H.li $ do
+      "The Discord server I run "
+      H.a ! A.href "https://discord.gg/kbK45MDk7q" $ "Invite link"
     H.li $ do
       "Co-hosted YouTube channel talking all things FP "
       H.a ! A.href "/curry-corner" $ "The Curry Corner"
